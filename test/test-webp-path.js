@@ -6,6 +6,14 @@ var path = require('path');
 var fs = require('fs');
 var exec = require('child_process').exec;
 
+function print(err, stdout, stderr){
+    console.log('err:' +  err);
+    console.log('stdout:');
+    console.log(stdout);
+    console.log('stderr:');
+    console.log(stderr);
+}
+
 describe('webp-bin', function () {
     after(function () {
         fs.unlinkSync('test/test.webp');
@@ -15,6 +23,7 @@ describe('webp-bin', function () {
         var binPath = require('../lib/webp-bin').path;
 
         exec(binPath, function (err, stdout, stderr) {
+            print(err, stdout, stderr);
             assert(stdout.toString().indexOf('cwebp') !== -1);
             cb();
         });
@@ -24,6 +33,7 @@ describe('webp-bin', function () {
         var binPath = path.join(__dirname, '../bin/webp-bin');
 
         exec('node ' + binPath, function (err, stdout, stderr) {
+            print(err, stdout, stderr);
             assert(stdout.toString().indexOf('cwebp') !== -1);
             cb();
         });
@@ -36,7 +46,8 @@ describe('webp-bin', function () {
             '-o', path.join(__dirname, 'test.webp')
         ];
 
-        exec('node ' + binPath + ' ' + args.join(' '), function () {
+        exec('node ' + binPath + ' ' + args.join(' '), function (err, stdout, stderr) {
+            print(err, stdout, stderr);
             var actual = fs.statSync('test/test.webp').size;
             var original = fs.statSync('test/fixtures/test.png').size;
             assert(actual < original);
