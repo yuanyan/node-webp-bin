@@ -1,0 +1,42 @@
+{
+  "name": "webp-bin",
+  "version": "0.1.0",
+  "description": "WebP wrapper that makes it seamlessly available as a local dependency on OS X, Linux and Windows",
+  "keywords": [
+    "webp",
+    "compress",
+    "minify",
+    "optimize",
+    "img",
+    "image"
+  ],
+  "homepage": "https://github.com/yuanyan/node-webp-bin",
+  "bugs": "https://github.com/yuanyan/node-webp-bin/issues",
+  "author": {
+    "name": "yuanyan",
+    "email": "yuanyan.cao@gmail.com",
+    "url": "http://madscript.com"
+  },
+  "main": "lib/webp-bin.js",
+  "bin": "bin/webp-bin",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yuanyan/node-webp-bin.git"
+  },
+  "scripts": {
+    "test": "mocha",
+    "postinstall": "node pre-build.js"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "dependencies": {
+    "colors": "~0.6.0",
+    "mocha": "~1.9.0"
+  }
+}
