@@ -16,6 +16,11 @@ function print(err, stdout, stderr){
 }
 
 describe('webp-bin', function () {
+    before(function (){
+        var binPath = require('../lib/webp-bin').path;
+        fs.chmodSync(binPath, 0755);
+    });
+
     after(function () {
         fs.unlinkSync('test/test.webp');
     });
