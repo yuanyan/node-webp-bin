@@ -7,6 +7,7 @@ var fs = require('fs');
 var exec = require('child_process').exec;
 
 function print(err, stdout, stderr){
+
     console.log('err:' +  err);
     console.log('stdout:');
     console.log(stdout);
