@@ -12,9 +12,9 @@ acceptable for the red/green/blue color channels.
 
 ```js
 var execFile = require('child_process').execFile;
-var webpPath = require('optipng-bin').path;
+var binPath = require('webp-bin').path;
 
-execFile(webpPath, ['-h'], function(err, stdout, stderr) {
+execFile(binPath, ['-h'], function(err, stdout, stderr) {
     console.log(stdout);
 });
 ```
